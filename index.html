@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroTrace OS | المركز العماني للأمن السيبراني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Orbitron:wght@400;700&family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0081ff;
+            --bg-dark: #05070a;
+            --card-bg: #0d1117;
+            --code-bg: #161b22;
+            --text-gray: #8892b0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: #e6f1ff; font-family: 'Tajawal', sans-serif; line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 5%; background: rgba(5, 7, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-text { font-family: 'Orbitron'; font-weight: bold; font-size: 1.4rem; color: white; text-decoration: none; }
+        .logo-text span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            display: flex; align-items: center; justify-content: center;
+            padding: 80px 5%; min-height: 85vh; gap: 0;
+            background: radial-gradient(circle at 50% 50%, #0d1b2e 0%, #05070a 100%);
+        }
+
+        .hero-left { flex: 1; text-align: left; padding-right: 50px; direction: ltr; }
+        
+        /* الخط العامودي الأبيض الصريح */
+        .vertical-line {
+            width: 2px;
+            height: 450px;
+            background-color: white;
+            margin: 0 40px;
+        }
+
+        .hero-right { flex: 1; text-align: center; padding-left: 50px; }
+
+        .main-logo {
+            width: 260px;
+            background: transparent;
+            mix-blend-mode: screen; /* إزالة الخلفية السوداء للوجو */
+        }
+
+        .ascii-art {
+            width: 100%; max-width: 500px;
+            border-radius: 4px;
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* نص التيرمينال المتحرك */
+        .improvement-tag {
+            display: block; margin-top: 20px; color: #00d2ff;
+            font-family: 'Fira Code', monospace; font-size: 1rem;
+            border-right: 2px solid #00d2ff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: fit-content;
+            margin-left: auto; margin-right: auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #00d2ff; } }
+
+        .btn-main {
+            background: var(--primary); color: white; padding: 12px 30px;
+            border-radius: 4px; text-decoration: none; font-weight: bold;
+            display: inline-block; margin-top: 25px; transition: 0.3s;
+            font-family: 'Orbitron';
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 0 20px var(--primary); }
+
+        /* Sections Styling */
+        .section { padding: 100px 10% 60px; }
+        .section-title { font-size: 2rem; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
+
+        .blog-card { background: var(--card-bg); padding: 25px; border-radius: 8px; border: 1px solid #21262d; margin-bottom: 30px; }
+        
+        pre {
+            background: var(--code-bg); padding: 20px; border-radius: 5px;
+            font-family: 'Fira Code', monospace; font-size: 0.85rem;
+            color: #d1d5da; overflow-x: auto; border: 1px solid #30363d;
+            margin-top: 15px; direction: ltr; text-align: left;
+        }
+
+        .tag { background: rgba(0, 129, 255, 0.1); color: var(--primary); padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #21262d; color: var(--text-gray); font-size: 0.8rem; }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; }
+            .vertical-line { display: none; }
+            .hero-left, .hero-right { padding: 20px; text-align: center; direction: rtl; }
+            .improvement-tag { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-text">ZERO<span>TRACE</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#build-logs">Build Code</a></li>
+            <li><a href="#download">Download</a></li>
+        </ul>
+        <div style="font-size: 0.9rem; font-weight: bold; color: white;">سلطنة عُمان 🇴🇲</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-left">
+            <img src="646168443_1427576485513282_2247754882077903395_n.jpg" alt="ZeroTrace Logo" class="main-logo">
+            <h1 style="font-family: 'Orbitron'; font-size: 3rem; color: white;">ZeroTrace OS</h1>
+            <p>أول بيئة سيبرانية عمانية متكاملة. تم تطويرها بواسطة كفاءات عمانية وسورية شابة تحت إشراف وزارة العلوم والتقنية.</p>
+            <a href="#download" class="btn-main">GET ISO V1.0</a>
+        </div>
+
+        <div class="vertical-line"></div>
+
+        <div class="hero-right">
+            <img src="Screenshot_20260314_142023.png" alt="System Info" class="ascii-art">
+            <span class="improvement-tag">> [SYSTEM OPTIMIZATION: PARROT_OS_ECHO_STABLE]</span>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2 class="section-title">عن المشروع (About)</h2>
+        <div class="blog-card">
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                مشروع <strong>ZeroTrace OS</strong> هو مبادرة تقنية وطنية تهدف لتوفير نظام تشغيل آمن ومخصص لاختبار الاختراق والتحليل الجنائي الرقمي. 
+                تم العمل عليه بروح الفريق الواحد بين مطورين من <strong>سلطنة عُمان</strong> و<strong>سوريا</strong> لتقديم حلول سيبرانية تضاهي الأنظمة العالمية بميزات خصوصية فريدة وتعديلات جوهرية على الأداء.
+            </p>
+        </div>
+    </section>
+
+    <section id="build-logs" class="section">
+        <h2 class="section-title">سجل بناء النظام (Build Code)</h2>
+        
+        <div class="blog-container">
+            <div class="blog-card">
+                <span class="tag">UI Customization</span>
+                <h3>تخصيص هوية الـ Bootloader</h3>
+                <p>الأمر المستخدم لتغيير صورة خلفية الـ Grub بنجاح:</p>
+                <pre>sudo cp ~/Downloads/desktop-background.jpg /boot/grub/grub-16x9.jpg && sudo update-grub</pre>
+            </div>
+
+            <div class="blog-card">
+                <span class="tag">System Fix</span>
+                <h3>تنظيف المستودعات وإصلاح الـ APT</h3>
+                <p>حل مشكلة أخطاء 404 التي تظهر عند تحديث النظام:</p>
+                <pre>sudo rm /etc/apt/sources.list.d/cubic.list && sudo apt update</pre>
+            </div>
+
+            <div class="blog-card">
+                <span class="tag">Performance</span>
+                <h3>تسريع الضغط بجميع الأنوية</h3>
+                <p>استخدام المعالج بالكامل لإنتاج ملف الـ ISO بسرعة قصوى:</p>
+                <pre>mksquashfs /source /destination -comp gzip -processors $(nproc)</pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="section">
+        <h2 class="section-title">التحميل (Download)</h2>
+        <div class="blog-card" style="text-align: center; border: 2px dashed var(--primary); padding: 50px;">
+            <h3>ZeroTrace OS v1.0 Stable</h3>
+            <p style="margin: 20px 0; color: var(--text-gray);">الحجم التقريبي: 3.2 GB | النوع: ISO Image</p>
+            <a href="#" class="btn-main" id="githubDownloadBtn">Download Latest ISO</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 ZeroTrace OS - Omani & Syrian Youth Team - Ministry of Science & Technology 🇴🇲</p>
+    </footer>
+
+    <script>
+        // برمجية الربط التلقائي بـ GitHub
+        // فقط قم بتغيير هذه القيم عندما ترفع الملف لـ GitHub
+        const githubUsername = "Taymallah"; // اسمك على جت هب
+        const repoName = "ZeroTrace-OS";     // اسم المستودع
+
+        const downloadBtn = document.getElementById('githubDownloadBtn');
+        
+        // الرابط سيشير تلقائياً لملف الـ ISO في قسم الـ Releases
+        const isoUrl = `https://github.com/${githubUsername}/${repoName}/releases/latest/download/zerotrace.iso`;
+        
+        downloadBtn.href = isoUrl;
+
+        // التحقق من وجود الملف (اختياري)
+        downloadBtn.addEventListener('click', (e) => {
+            if(downloadBtn.getAttribute('href') === "#") {
+                alert("جاري رفع الملف على مستودع GitHub... يرجى المحاولة لاحقاً.");
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
